@@ -1,0 +1,33 @@
+module.exports = function registrationMail({ name, email, phone, city, status, date, source }) {
+  return {
+    subject: "🎉 Webinar Registration Received!",
+    html: `
+    <div style="font-family: Arial; background:#f5f7fa; padding: 40px;">
+      <div style="max-width:600px; margin:auto; background:white; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.1);">
+        <div style="background:#ffb100; padding:25px; text-align:center;">
+          <h1 style="color:#000; margin:0; font-size:24px;">🎉 Registration Confirmed!</h1>
+          <p style="color:#222; margin-top:8px; font-size:16px;">Digital Marketing Webinar</p>
+        </div>
+        <div style="padding:30px;">
+          <p style="font-size:16px; color:#333;">Hi <strong>${name}</strong>,</p>
+          <p style="color:#555; line-height:1.6;">
+            Thank you for registering! We're excited to have you join us.
+          </p>
+          <div style="background:#f9fafc; border:1px solid #e5e7eb; border-radius:10px; padding:20px; margin-top:20px;">
+            <h3>Your Details</h3>
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Phone:</strong> ${phone}</p>
+            <p><strong>Email:</strong> ${email || "Not Provided"}</p>
+            <p><strong>City:</strong> ${city}</p>
+            <p><strong>Status:</strong> ${status}</p>
+            <p><strong>Preferred Date:</strong> ${date}</p>
+            <p><strong>Source:</strong> ${source}</p>
+          </div>
+          <p style="margin-top:20px; color:#555;">
+            Webinar link & updates will be shared soon. Feel free to reply if you have queries!
+          </p>
+        </div>
+      </div>
+    </div>`
+  };
+};
