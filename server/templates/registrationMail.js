@@ -23,9 +23,6 @@ module.exports = function registrationMail({ name, email, phone, city, status, d
             <p><strong>Preferred Date:</strong> ${date}</p>
             <p><strong>Source:</strong> ${source}</p>
           </div>
-          <p style="margin-top:20px; color:#555;">
-            Webinar link & updates will be shared soon. Feel free to reply if you have queries!
-          </p>
         </div>
       </div>
     </div>`
