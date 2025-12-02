@@ -25,7 +25,7 @@ app.use(express.json());
 app.use("/api/mail", mailRoutes);
 
 // Root
-app.get("/", (req, res) => res.send("🚀 Webinar Form Backend Running!"));
+app.get("/", (req, res) => res.send("🚀 Abmgroups Email Server Backend Running successfully!!!!!!!!!!"));
 
 // Start server
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));

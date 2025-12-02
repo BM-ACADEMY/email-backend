@@ -1,6 +1,7 @@
 const transporter = require("../config/mailConfig");
 const registrationMail = require("../templates/registrationMail");
 
+// digital marketing webinar for bmacademy
 exports.sendRegistrationMail = async (req, res) => {
   try {
     const { name, email, phone, city, status, date, source } = req.body;
