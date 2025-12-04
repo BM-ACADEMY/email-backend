@@ -24,6 +24,15 @@ module.exports = function registrationMail({ name, email, phone, city, status, d
             <p><strong>Source:</strong> ${source}</p>
           </div>
         </div>
+        <div style="text-align:center; padding:20px; background:#ffffff; border-top:1px solid #eee; border-radius:0 0 12px 12px;">
+          <p style="font-size:14px; color:#666; margin:0 0 10px;">
+            Have any doubts or questions?
+          </p>
+          <a href="https://www.instagram.com/bmacademypondy" 
+             style="display:inline-block; font-size:15px; color:#ff3b30; text-decoration:none; font-weight:bold;">
+            Instagram
+          </a>
+        </div>
       </div>
     </div>`
   };

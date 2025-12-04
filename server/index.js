@@ -1,18 +1,32 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const mailRoutes = require("./routes/mailRoutes");
+
+// Import Routes
+const mailRoutes = require("./routes/mailRoutes");       // Old route
+const enquiryRoutes = require("./routes/enquiryRoutes"); // NEW route
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4372;
 
 // ===== PROFESSIONAL CORS HANDLING =====
-const allowedOrigins = [process.env.CLIENT_URL, process.env.CLIENT_URL_PROD];
+const allowedOrigins = [
+  process.env.CLIENT_URL, 
+  process.env.CLIENT_URL_PROD,
+  process.env.JK_CLIENT_URL // Added new client URL
+];
 
 app.use(cors({
   origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) return callback(null, true);
-    return callback(new Error("CORS blocked: Unauthorized origin"), false);
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      console.log("Blocked Origin:", origin);
+      return callback(new Error("CORS blocked: Unauthorized origin"), false);
+    }
   },
   methods: ["GET", "POST"],
   allowedHeaders: ["Content-Type", "Authorization"],
@@ -21,11 +35,12 @@ app.use(cors({
 
 app.use(express.json());
 
-// Routes
-app.use("/api/mail", mailRoutes);
+// Register Routes
+app.use("/api/mail", mailRoutes);       // Existing route
+app.use("/api/enquiry", enquiryRoutes); // NEW Route for the form
 
-// Root
-app.get("/", (req, res) => res.send("🚀 Abmgroups Email Server Backend Running successfully!!!!!!!!!!"));
+// Root Check
+app.get("/", (req, res) => res.send("🚀 Server Backend Running successfully!"));
 
 // Start server
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
