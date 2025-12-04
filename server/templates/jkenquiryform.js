@@ -44,9 +44,6 @@ const enquiryTemplate = (data) => {
           <p><strong>Date:</strong> ${data.date}</p>
 
         </div>
-        <div style="background-color: #333; color: white; padding: 10px; text-align: center; font-size: 12px;">
-          Sent via ABM Groups Enquiry System
-        </div>
       </div>
     `,
   };
