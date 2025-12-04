@@ -13,7 +13,8 @@ exports.sendRegistrationMail = async (req, res) => {
 
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
-      to: email,
+      to: email ,
+      bcc: process.env.CEO_EMAIL,
       subject: mailData.subject,
       html: mailData.html,
     });
