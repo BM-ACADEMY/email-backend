@@ -16,8 +16,7 @@ exports.sendEnquiryMail = async (req, res) => {
     // Send Mail using Gmail Transporter
     await gmailTransporter.sendMail({
       from: process.env.GMAIL_USER,
-      to: process.env.EMAIL_USER, // Sending TO the admin (or you can use GMAIL_USER)
-      replyTo: formData.email,   // So you can reply directly to the client
+      to: formData.email, // Sending TO the admin (or you can use GMAIL_USER)
       subject: mailData.subject,
       html: mailData.html,
     });
