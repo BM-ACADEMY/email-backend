@@ -5,17 +5,15 @@ const cors = require("cors");
 // Import Routes
 const mailRoutes = require("./routes/mailRoutes");       // Old route
 const enquiryRoutes = require("./routes/enquiryRoutes"); // NEW route
-const credaroRoutes = require("./routes/credaroroutes"); // NEW route for Credaro
 
 const app = express();
-const PORT = process.env.PORT || 4372;
+const PORT = process.env.PORT;
 
 // ===== PROFESSIONAL CORS HANDLING =====
 const allowedOrigins = [
   process.env.CLIENT_URL, 
   process.env.CLIENT_URL_PROD,
   process.env.JK_CLIENT_URL,
-  process.env.CREDARO_CLIENT_URL,
 ];
 
 app.use(cors({
@@ -40,7 +38,6 @@ app.use(express.json());
 // Register Routes
 app.use("/api/mail", mailRoutes);       // Existing route
 app.use("/api/enquiry", enquiryRoutes); // NEW Route for the form
-app.use("/api/credaro", credaroRoutes); // NEW Route for Credaro enquiries
 
 // Root Check
 app.get("/", (req, res) => res.send("🚀 Server Backend Running successfully!"));
