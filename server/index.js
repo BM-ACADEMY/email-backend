@@ -5,6 +5,7 @@ const cors = require("cors");
 // Import Routes
 const mailRoutes = require("./routes/mailRoutes");       // Old route
 const enquiryRoutes = require("./routes/enquiryRoutes"); // NEW route
+const enquiryRoutesfsdanddm = require("./routes/fsd&daroutes"); // NEW route
 
 const app = express();
 const PORT = process.env.PORT;
@@ -38,6 +39,7 @@ app.use(express.json());
 // Register Routes
 app.use("/api/mail", mailRoutes);       // Existing route
 app.use("/api/enquiry", enquiryRoutes); // NEW Route for the form
+app.use("/api/landing", enquiryRoutesfsdanddm)
 
 // Root Check
 app.get("/", (req, res) => res.send("🚀 Server Backend Running successfully!"));
