@@ -28,9 +28,9 @@ module.exports = function registrationMail({ name, email, phone, city, status, d
           <p style="font-size:14px; color:#666; margin:0 0 10px;">
             Have any doubts or questions?
           </p>
-          <a href="https://www.instagram.com/bmacademypondy" 
+          <a href="https://chat.whatsapp.com/CsLBGBa3jjvGL8Sygb8CpP" 
              style="display:inline-block; font-size:15px; color:#ff3b30; text-decoration:none; font-weight:bold;">
-            Instagram
+            Whatsapp Groups
           </a>
         </div>
       </div>
