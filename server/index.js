@@ -16,6 +16,7 @@ const allowedOrigins = [
   process.env.CLIENT_URL, 
   process.env.CLIENT_URL_PROD,
   process.env.JK_CLIENT_URL,
+  process.env.picturize_CLIENT_URL,
 ];
 
 app.use(cors({
