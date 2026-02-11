@@ -7,6 +7,7 @@ const mailRoutes = require("./routes/mailRoutes");       // Old route
 const enquiryRoutes = require("./routes/enquiryRoutes"); // NEW route
 const enquiryRoutesfsdanddm = require("./routes/fsd&daroutes"); // NEW route
 const picturizeRoutes = require("./routes/picturizeRoutes");
+const multiverseconstructionroute = require("./routes/multiverseroute");
 
 const app = express();
 const PORT = process.env.PORT;
@@ -17,6 +18,7 @@ const allowedOrigins = [
   process.env.CLIENT_URL_PROD,
   process.env.JK_CLIENT_URL,
   process.env.picturize_CLIENT_URL,
+  process.env.construction_CLIENT_URL,
 ];
 
 app.use(cors({
@@ -43,6 +45,7 @@ app.use("/api/mail", mailRoutes);       // Existing route
 app.use("/api/enquiry", enquiryRoutes); // NEW Route for the form
 app.use("/api/landing", enquiryRoutesfsdanddm)
 app.use("/api/picturize", picturizeRoutes);
+app.use("/api/construction", multiverseconstructionroute);
 
 // Root Check
 app.get("/", (req, res) => res.send("🚀 Server Backend Running successfully!"));
