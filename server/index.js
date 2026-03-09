@@ -8,6 +8,7 @@ const enquiryRoutes = require("./routes/enquiryRoutes"); // NEW route
 const enquiryRoutesfsdanddm = require("./routes/fsd&daroutes"); // NEW route
 const picturizeRoutes = require("./routes/picturizeRoutes");
 const multiverseconstructionroute = require("./routes/multiverseroute");
+const bmtechxport = require("./routes/bmtechportroute");
 
 const app = express();
 const PORT = process.env.PORT;
@@ -19,6 +20,7 @@ const allowedOrigins = [
   process.env.JK_CLIENT_URL,
   process.env.picturize_CLIENT_URL,
   process.env.construction_CLIENT_URL,
+  process.env.TECHX_URL,
 ];
 
 app.use(cors({
@@ -46,6 +48,7 @@ app.use("/api/enquiry", enquiryRoutes); // NEW Route for the form
 app.use("/api/landing", enquiryRoutesfsdanddm)
 app.use("/api/picturize", picturizeRoutes);
 app.use("/api/construction", multiverseconstructionroute);
+app.use("/api/bmtechx-port",bmtechxport);
 
 // Root Check
 app.get("/", (req, res) => res.send("🚀 Server Backend Running successfully!"));
