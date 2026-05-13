@@ -9,6 +9,8 @@ const enquiryRoutesfsdanddm = require("./routes/fsd&daroutes"); // NEW route
 const picturizeRoutes = require("./routes/picturizeRoutes");
 const multiverseconstructionroute = require("./routes/multiverseroute");
 const bmtechxport = require("./routes/bmtechportroute");
+const grahaBuilderRoutes = require("./routes/grahaBuilderRoutes");
+
 
 const app = express();
 const PORT = process.env.PORT;
@@ -21,7 +23,9 @@ const allowedOrigins = [
   process.env.picturize_CLIENT_URL,
   process.env.construction_CLIENT_URL,
   process.env.TECHX_URL,
+  process.env.graha_builder_CLIENT_URL,
 ];
+
 
 app.use(cors({
   origin: function (origin, callback) {
@@ -49,6 +53,8 @@ app.use("/api/landing", enquiryRoutesfsdanddm)
 app.use("/api/picturize", picturizeRoutes);
 app.use("/api/construction", multiverseconstructionroute);
 app.use("/api/bmtechx-port",bmtechxport);
+app.use("/api/graha-builders", grahaBuilderRoutes);
+
 
 // Root Check
 app.get("/", (req, res) => res.send("🚀 Server Backend Running successfully!"));
