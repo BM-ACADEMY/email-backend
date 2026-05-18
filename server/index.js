@@ -10,6 +10,7 @@ const picturizeRoutes = require("./routes/picturizeRoutes");
 const multiverseconstructionroute = require("./routes/multiverseroute");
 const bmtechxport = require("./routes/bmtechportroute");
 const grahaBuilderRoutes = require("./routes/grahaBuilderRoutes");
+const theOpenRouteRoutes = require("./routes/theOpenRouteRoutes");
 
 
 const app = express();
@@ -24,6 +25,7 @@ const allowedOrigins = [
   process.env.construction_CLIENT_URL,
   process.env.TECHX_URL,
   process.env.graha_builder_CLIENT_URL,
+  process.env.THE_OPEN_ROUTE_CLIENT_URL,
 ];
 
 
@@ -54,6 +56,7 @@ app.use("/api/picturize", picturizeRoutes);
 app.use("/api/construction", multiverseconstructionroute);
 app.use("/api/bmtechx-port",bmtechxport);
 app.use("/api/graha-builders", grahaBuilderRoutes);
+app.use("/api/the-open-route", theOpenRouteRoutes);
 
 
 // Root Check
