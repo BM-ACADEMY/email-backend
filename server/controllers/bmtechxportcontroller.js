@@ -22,7 +22,20 @@ exports.createContactForm = async (req, res) => {
       html: mailData.html,
     });
 
-    // 5. Send success response back to React (Triggers toast.success)
+    // 5. Send data to webhook
+    try {
+      await fetch("https://leados-n8n.abmgroups.org/webhook/contact-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, email, phoneNumber, description }),
+      });
+    } catch (webhookErr) {
+      console.error("Webhook Error:", webhookErr);
+    }
+
+    // 6. Send success response back to React (Triggers toast.success)
     res.status(200).json({ message: "Contact submitted successfully" });
 
   } catch (err) {
