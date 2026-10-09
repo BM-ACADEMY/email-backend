@@ -27,7 +27,7 @@ exports.createContactForm = async (req, res) => {
     // Send email to admin
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
-      to: process.env.ADMIN_EMAIL, // Admin email from .env
+      to: process.env.ADMIN_EMAIL || process.env.EMAIL_USER, // Admin email from .env (fallback to EMAIL_USER)
       subject: `New Enquiry - ${website}`,
       html: `
         <h2>New Contact Form Enquiry</h2>
